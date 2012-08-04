@@ -1,0 +1,11 @@
+<h1>Tasks</h1>
+<%= link_to "Prev", tasks_path(:d => (@date - 1.days).strftime("%Y%m%d")) %>
+<%= @date %>
+<%= link_to "Next", tasks_path(:d => (@date + 1.days).strftime("%Y%m%d")) %>
+
+
+<% for task in @tasks %>
+  <div <% if task.completed %>style="text-decoration:line-through;"<% end %>>
+    <%= task.description %>
+  </div>
+<% end %>
